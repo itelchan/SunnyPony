@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Sunny Pony</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Raleway:wght@900&display=swap" rel="stylesheet">
+
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card mb-3 thecentralcard"  style="max-width:45rem;">
+        <img src="images/BannerSunnyPony.png" class="card-img-top embed-responsive-16by9 bannerImage" alt="TheSunnyPonyImage">
+        
+        <div class="card-body">
+          <p class="card-text">
+          <div class="row searchingRow">
+            <form class="col-sm-12 searchingForm" id="sunnyPonyForm">
+              <div class= "form-row justify-content-center searchingFormRow">
+                <div class="col-6  searchingColumn">
+                  <input type="text" class="form-control" id="inputCity1" placeholder="City Name">
+                </div>
+                <div class="col-2 buttonColumn">
+                  <button type="submit" class="btn btn-info mx-sm-2 mb-2 shadow searchButton">I'll search 🦄</button>
+                </div>
+                <div class="col-2 gradesColumn">
+                  <div class="form-check radioInputText">
+                  <input class="form-check-input " type="radio" name="grades" value="metric" id="COption" checked>
+                    °C
+                  </div>
+                  <div class="form-check radioInputText">
+                  <input class="form-check-input " type="radio" name="grades" value="imperial" id="FOption">
+                    °F
+                  </div>
+                </div>   
+                <div class="col-1 currentLocColumn">
+                <button class="btn btn-info mx-sm-2 mb-2 shadow currentLocButton" id="currentLocButton">📍 <br />Current <br /> Location</button>
+                </div>     
+             </div>
+            </form>
+          </div>
+
+          
+            <div class="row displayRow justify-content-center">
+              <div class="col-md-6 currentWeatherColumn">
+                <div class="row currentWeatherRow">
+                  <div class="col-md-12 cityNameText">
+                    <section id="displayCity"> Mexico City</section>
+                  </div>
+                </div>
+                <div class="row currentWeatherRow">
+                  <div class="col-md-12 countryNameText">
+                    <section id="displayCountry"> Mexico</section>
+                  </div>
+                </div>
+                <div class="row currentWeatherRow">
+                  <div class="col-md-12 temperatureCityText">
+                    <section id ="displayTemp">25 °C</section>
+                  </div>
+                </div>
+                <div class="row currentWeatherRow">
+                  <div class="col-md-12 descriptionWeatherText">
+                    <section id ="displayWeatherConditions">Clear and Sunny</section>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 mx-auto imageColumn ">
+                <img id ="displayCurrentWeatherImage" alt="CurrentWeather" src="images/poo-storm-solid.svg" class="rounded mx-auto currentWeatherImage" />
+              </div>
+              <div class="col-md-4 detailsColumn">
+                <div class="row">
+                  <div class="col-md-3">
+                    <img alt="DayImage" src="images/horse_pink.png" class="rounded detailImage" />
+                  </div>
+                  <div class="col-md-9 detailText ">
+                    <section id="currentDate">Sunday 1 Nov</section>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <img alt="WindImage" src="images/wind_pink.png" class="rounded detailImage" />
+                  </div>
+                  <div class="col-md-9 detailText">
+                    <section id="displayCurrentWindSpeed"> Wind 2 m/s</section>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <img alt="HumidityImg" src="images/humidity_pink.png" class="rounded detailImage" />
+                  </div>
+                  <div class="col-md-9 detailText">
+                    <section id="displayCurrentHumidity">Humidity 2%</section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+
+          <div class="row forecastdaysRow justify-content-center">
+            <div class="col-sm-2 daycard">
+              <div class="card text-center">      
+                <div class="card-header cardHeaderText">Mon</div>
+                  <img
+                    src="images/poo-storm-solid.svg"
+                    class="card-img-top mx-auto dayCardImg"
+                    class="rounded-top"
+                    alt="MONDAY"
+                  />
+                  <div class="card-body cardBodyTemp">
+                    <p class="card-text">
+                    13°C | 26°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-2 daycard">
+                <div class="card text-center">
+                  <div class="card-header cardHeaderText">Tue</div>
+                  <img
+                    src="images/poo-storm-solid.svg"
+                    class="card-img-top mx-auto dayCardImg"
+                    alt="TUESDAY"
+                  />
+                  <div class="card-body cardBodyTemp">
+                    <p class="card-text">
+                      11°C | 25°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-2 daycard">
+                <div class="card text-center">
+                  <div class="card-header cardHeaderText ">Wed</div>
+                  <img
+                    src="images/poo-storm-solid.svg"
+                    class="card-img-top mx-auto dayCardImg"
+                    alt="WEDNESDAY"
+                  />
+                  <div class="card-body cardBodyTemp">
+                    <p class="card-text">
+                      10°C | 20°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-2 daycard">
+                <div class="card text-center">
+                  <div class="card-header cardHeaderText">Thu</div>
+                  <img
+                    src="images/poo-storm-solid.svg"
+                    class="card-img-top mx-auto dayCardImg"
+                    alt="THURSDAY"
+                  />
+                  
+                  <div class="card-body cardBodyTemp">
+                    <p class="card-text">
+                      16°C | 28°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-2 daycard">
+                <div class="card text-center">
+                  <div class="card-header cardHeaderText">Fri</div>
+                  <img
+                    src="images/poo-storm-solid.svg"
+                    class="card-img-top mx-auto dayCardImg"
+                    alt="FRIDAY"
+                  />
+                  <div class="card-body cardBodyTemp">
+                    <p class="card-text">
+                      13°C | 26°C
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </p>
+        </div>
+        <h4 class="footer">
+          &nbsp;This page was built by:
+          <a href="https://commons.wikimedia.org/wiki/User:Itelchan" target="_blank">
+              Leticia Garcia &nbsp;
+          </a>
+          <!--<a href="https://de.linkedin.com/in/leticia-garcia-herrera-698554b3" target="_blank">
+            *LinkedIn &nbsp;
+          </a>
+         -->
+          </p>
+      </h4>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+h4 {
+  color: #b8f3ff;
+  font-variant: normal;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+a {
+  color: inherit;
+}
+
+.thecentralcard {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  border-color: #a798ab;
+  border-width: 3px;
+  background: rgb(59, 49, 47);
+  background: linear-gradient(
+    180deg,
+    rgba(59, 49, 47, 1) 0%,
+    rgba(85, 73, 113, 1) 43%,
+    rgba(99, 118, 141, 1) 74%,
+    rgba(138, 198, 208, 1) 100%
+  );
+}
+
+.bannerImage {
+  border-radius: 10px;
+}
+
+.searchButton,
+.currentLocButton {
+  background: #b8f3ff;
+  border: #b8f3ff;
+  color: rgb(59, 49, 47);
+  padding: 8px;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.displayRow {
+  padding: 20px;
+}
+
+.footer,
+.searchButton,
+.currentLocButton,
+.searchingColumn,
+.cardHeaderText,
+.detailText,
+.cityNameText,
+.countryNameText,
+.temperatureCityText,
+.descriptionWeatherText,
+.cardBodyTemp {
+  font-family: "Itim", cursive;
+}
+
+.radioInputText,
+.cityNameText,
+.countryNameText,
+.temperatureCityText,
+.descriptionWeatherText {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+
+.radioInputText,
+.detailText,
+.cityNameText,
+.countryNameText,
+.temperatureCityText {
+  color: #e3cad2;
+}
+
+.currentWeatherRow {
+  margin-top: 0;
+}
+
+.cardHeaderText {
+  font-size: 20px;
+  color: black;
+  padding: 12px;
+  background: #d5afbc;
+}
+
+.cityNameText {
+  font-size: 40px;
+  text-align: center;
+  line-height: 50px;
+  text-transform: capitalize;
+}
+
+.countryNameText {
+  font-size: 35px;
+  text-align: center;
+  line-height: 50px;
+  text-transform: capitalize;
+}
+
+.temperatureCityText {
+  font-size: 35px;
+  text-align: center;
+}
+
+.descriptionWeatherText {
+  font-size: 20px;
+  text-align: center;
+  color: #dc8e7f;
+  text-transform: capitalize;
+}
+
+.detailText {
+  font-size: 18px;
+}
+
+.currentLocColumn {
+  padding: 0px;
+  margin: 0;
+}
+
+.currentWeatherColumn {
+  padding-right: 0px;
+}
+
+.currentWeatherImage {
+  margin-top: 50px;
+  max-width: 10em;
+  display: block;
+}
+
+.imageColumn {
+  padding-left: 0px;
+  padding-right: 20px;
+}
+.detailsColumn {
+  margin-top: 20px;
+}
+
+.detailImage {
+  width: 2em;
+}
+
+.daycard {
+  padding: 10px 5px;
+  border: none;
+}
+
+.dayCardImg {
+  padding-top: 8px;
+  width: 3em;
+}
+
+.cardBodyTemp {
+  padding: 10px 5px;
+}
+
+.footer {
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+}
+
+.currentLocButton {
+  margin: 0px, 0px, 0px, 0px;
+  line-height: 1.1;
+}
