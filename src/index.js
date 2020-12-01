@@ -6,6 +6,33 @@ let globalCityTempF = calculateFahrenheit(globalCityTempC);
 let globalWindSpeedms = 2;
 let globalWindSpeedMH = calculateMilesPerHour(globalWindSpeedms);
 
+let days = [
+  "Sunday",
+  "Monday",
+  "Tueday",
+  "Wednsday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
+let months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
+];
+
+displayCurrentDate();
+
 function calculateFahrenheit(centigrades) {
   return Number(centigrades) * (9 / 5) + 32;
 }
@@ -31,31 +58,6 @@ function formatTime(timeNumber) {
 }
 
 function calculateCurrentDate() {
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tueday",
-    "Wednsday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ];
-
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-  ];
-
   let now = new Date();
   let month = months[now.getMonth()];
   let day = days[now.getDay()];
@@ -67,8 +69,20 @@ function calculateCurrentDate() {
   )}`;
 }
 
-let currentDate = document.querySelector("#currentDate");
-currentDate.innerHTML = calculateCurrentDate();
+
+
+
+////// DATE CALCULATION Epoch Converter - Unix Timestamp Converter - with ms since 1970  ////////
+function formatDateUnix(timestamp)
+{
+  let date = new Date(timestamp);
+  let hours =  date.getHours();
+  let minutes = date.getMinutes();
+  let day = days[date.getDate()];
+  
+  return `${day} ${date.getDate()}  ${formatTime(hours)}:${formatTime(minutes)}`;
+}
+
 
 ///////////////////////      TEMP CALCULATION      ////////////////////////////
 
@@ -152,6 +166,19 @@ function displayCurrentHumidity(humidity) {
   let displayHumidity = document.querySelector("#displayCurrentHumidity");
   displayHumidity.innerHTML = `Humidity: ${humidity}%`;
 }
+
+function displayCurrentDate(){
+  let currentDate = document.querySelector("#currentDate");
+  currentDate.innerHTML = calculateCurrentDate();
+}
+
+// Call it like this:  displayLastUpdatedResponseDate(response.data.dt);
+function displayLastUpdatedResponseDate(mseconds){
+  let currentDate = document.querySelector("#currentDate");
+  let latestUpdate = formatDateUnix(mseconds *1000);
+  console.log(latestUpdate);
+  currentDate.innerHTML = latestUpdate;
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 function displayTempAndWeatherToUserFromResponse(response) {
@@ -161,6 +188,9 @@ function displayTempAndWeatherToUserFromResponse(response) {
   displayTemperatureWithUnits(response.data.main.temp, globalUnits);
   displayWindSpeed(response.data.wind.speed);
   displayCurrentHumidity(response.data.main.humidity);
+  displayCurrentDate();
+
+  
 }
 
 function calculateURLWithSearchedCity(cityName) {
