@@ -171,3 +171,15 @@ a {
   margin: 0px, 0px, 0px, 0px;
   line-height: 1.1;
 }
+
+.forecastDay{
+  background: rgb(59, 49, 47);
+  background: linear-gradient(
+    180deg,
+    rgba(59, 49, 47, 1) 0%,
+    rgba(85, 73, 113, 1) 43%,
+    rgba(99, 118, 141, 1) 74%,
+    rgba(138, 198, 208, 1) 100%
+  );
+  border:0;
+}

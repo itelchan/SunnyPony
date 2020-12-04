@@ -111,11 +111,19 @@ function changeUnits() {
       dayNumberToForecast < 5;
       dayNumberToForecast++
     ) {
-      let forecastMinTempId = document.querySelector("#forecastMin" + dayNumberToForecast);
-      let forecastMaxTempId = document.querySelector("#forecastMax" + dayNumberToForecast);
+      let forecastMinTempId = document.querySelector(
+        "#forecastMin" + dayNumberToForecast
+      );
+      let forecastMaxTempId = document.querySelector(
+        "#forecastMax" + dayNumberToForecast
+      );
       console.log(dayNumberToForecast);
-      forecastMinTempId.innerHTML =  `${Math.round(globalCforecastMin[dayNumberToForecast])} °C`;
-      forecastMaxTempId.innerHTML =  `${Math.round(globalCforecastMax[dayNumberToForecast])} °C`;
+      forecastMinTempId.innerHTML = `${Math.round(
+        globalCforecastMin[dayNumberToForecast]
+      )} °C`;
+      forecastMaxTempId.innerHTML = `${Math.round(
+        globalCforecastMax[dayNumberToForecast]
+      )} °C`;
     }
   } else if (globalUnits === "imperial") {
     tempDisplay.innerHTML = `${Math.round(globalCityTempF)} °F`;
@@ -126,13 +134,20 @@ function changeUnits() {
       dayNumberToForecast < 5;
       dayNumberToForecast++
     ) {
-      let forecastMinTempId = document.querySelector("#forecastMin" + dayNumberToForecast);
-      let forecastMaxTempId = document.querySelector("#forecastMax" + dayNumberToForecast);
+      let forecastMinTempId = document.querySelector(
+        "#forecastMin" + dayNumberToForecast
+      );
+      let forecastMaxTempId = document.querySelector(
+        "#forecastMax" + dayNumberToForecast
+      );
 
-      forecastMinTempId.innerHTML =  `${Math.round(globalFforecastMin[dayNumberToForecast])} °F`;
-      forecastMaxTempId.innerHTML =  `${Math.round(globalFforecastMax[dayNumberToForecast])} °F`;
+      forecastMinTempId.innerHTML = `${Math.round(
+        globalFforecastMin[dayNumberToForecast]
+      )} °F`;
+      forecastMaxTempId.innerHTML = `${Math.round(
+        globalFforecastMax[dayNumberToForecast]
+      )} °F`;
     }
-
   } else {
     // leave the default temperature
   }
@@ -214,6 +229,14 @@ function displayCurrentDate() {
 
 function displayWheatherIcon(iconName) {
   let currentIcon = document.querySelector("#displayCurrentWeatherImage");
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconName}@2x.png`
+  );
+}
+
+function displayForcastedWheatherIcon(day, iconName) {
+  let currentIcon = document.querySelector("#forecastWeatherImage" + day);
   currentIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${iconName}@2x.png`
@@ -317,6 +340,7 @@ function displayForecastFromResponse(response) {
   let calculatedDay = 0;
   let i = 0;
   let distanceToNextDay = 8;
+  let midDayDistance = 3; // change to 2 or 3 , depending whats more interesting
   for (
     i = calculateForecastPositionForTomorrow();
     i < 40;
@@ -326,6 +350,11 @@ function displayForecastFromResponse(response) {
     let timestamp = response.data.list[i].dt;
     displayForecastDayName(forecastedDay, timestamp);
     displayForecastMinMax(forecastedDay, i, response);
+    console.log(response.data.list[i + midDayDistance]);
+    displayForcastedWheatherIcon(
+      forecastedDay,
+      response.data.list[i + midDayDistance].weather[0].icon
+    );
     forecastedDay++;
   }
 }
