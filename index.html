@@ -65,7 +65,7 @@
                 </div>
                 <div class="row currentWeatherRow">
                   <div class="col-md-12 temperatureCityText">
-                    <section id ="displayTemp">25 °C</section>
+                    <section id ="globalCityTemp"></section>
                   </div>
                 </div>
                 <div class="row currentWeatherRow">
@@ -83,7 +83,7 @@
                     <img alt="DayImage" src="images/horse_pink.png" class="rounded detailImage" />
                   </div>
                   <div class="col-md-9 detailText ">
-                    <section id="currentDate">Sunday 1 Nov</section>
+                    <section id="currentDate"></section>
                   </div>
                 </div>
                 <div class="row">
@@ -91,7 +91,7 @@
                     <img alt="WindImage" src="images/wind_pink.png" class="rounded detailImage" />
                   </div>
                   <div class="col-md-9 detailText">
-                    <section id="displayCurrentWindSpeed"> Wind 2 m/s</section>
+                    <section>Wind:<span id="displayCurrentWindSpeed"></span></section>
                   </div>
                 </div>
                 <div class="row">
@@ -99,7 +99,7 @@
                     <img alt="HumidityImg" src="images/humidity_pink.png" class="rounded detailImage" />
                   </div>
                   <div class="col-md-9 detailText">
-                    <section id="displayCurrentHumidity">Humidity 2%</section>
+                    <section>Humidity:<span id="displayCurrentHumidity"></span></section>
                   </div>
                 </div>
               </div>
@@ -109,16 +109,15 @@
           <div class="row forecastdaysRow justify-content-center">
             <div class="col-sm-2 daycard">
               <div class="card text-center">      
-                <div class="card-header cardHeaderText">Mon</div>
+                <div class="card-header cardHeaderText" id="forecastNameDay0">Mon</div>
                   <img
                     src="images/poo-storm-solid.svg"
                     class="card-img-top mx-auto dayCardImg"
                     class="rounded-top"
-                    alt="MONDAY"
                   />
                   <div class="card-body cardBodyTemp">
                     <p class="card-text">
-                    13°C | 26°C
+                      <span id="forecastMin0">13°C</span> | <span id="forecastMax0">26°</span>
                     </p>
                   </div>
                 </div>
@@ -126,32 +125,14 @@
 
               <div class="col-sm-2 daycard">
                 <div class="card text-center">
-                  <div class="card-header cardHeaderText">Tue</div>
+                  <div class="card-header cardHeaderText" id="forecastNameDay1">Tue</div>
                   <img
                     src="images/poo-storm-solid.svg"
                     class="card-img-top mx-auto dayCardImg"
-                    alt="TUESDAY"
                   />
                   <div class="card-body cardBodyTemp">
                     <p class="card-text">
-                      11°C | 25°C
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col-sm-2 daycard">
-                <div class="card text-center">
-                  <div class="card-header cardHeaderText ">Wed</div>
-                  <img
-                    src="images/poo-storm-solid.svg"
-                    class="card-img-top mx-auto dayCardImg"
-                    alt="WEDNESDAY"
-                  />
-                  <div class="card-body cardBodyTemp">
-                    <p class="card-text">
-                      10°C | 20°C
+                      <span id="forecastMin1">13°C</span> | <span id="forecastMax1">26°</span>
                     </p>
                   </div>
                 </div>
@@ -160,16 +141,31 @@
 
               <div class="col-sm-2 daycard">
                 <div class="card text-center">
-                  <div class="card-header cardHeaderText">Thu</div>
+                  <div class="card-header cardHeaderText " id="forecastNameDay2">Wed</div>
                   <img
                     src="images/poo-storm-solid.svg"
                     class="card-img-top mx-auto dayCardImg"
-                    alt="THURSDAY"
+                  />
+                  <div class="card-body cardBodyTemp">
+                    <p class="card-text">
+                      <span id="forecastMin2">13°C</span> | <span id="forecastMax2">26°</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-2 daycard">
+                <div class="card text-center">
+                  <div class="card-header cardHeaderText" id="forecastNameDay3">Thu</div>
+                  <img
+                    src="images/poo-storm-solid.svg"
+                    class="card-img-top mx-auto dayCardImg"
                   />
                   
                   <div class="card-body cardBodyTemp">
                     <p class="card-text">
-                      16°C | 28°C
+                      <span id="forecastMin3">13°C</span> | <span id="forecastMax3">26°</span>
                     </p>
                   </div>
                 </div>
@@ -178,15 +174,14 @@
 
               <div class="col-sm-2 daycard">
                 <div class="card text-center">
-                  <div class="card-header cardHeaderText">Fri</div>
+                  <div class="card-header cardHeaderText" id="forecastNameDay4">Fri</div>
                   <img
                     src="images/poo-storm-solid.svg"
                     class="card-img-top mx-auto dayCardImg"
-                    alt="FRIDAY"
                   />
                   <div class="card-body cardBodyTemp">
                     <p class="card-text">
-                      13°C | 26°C
+                      <span id="forecastMin4">13°C</span> | <span id="forecastMax4">26°</span>
                     </p>
                   </div>
                 </div>
