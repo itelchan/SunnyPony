@@ -365,7 +365,14 @@ function displayForecastFromResponse(response) {
   {
     let listLenght = 40;
     let timestamp = response.data.list[listLenght-1].dt;
-    displayForecastDayName(forecastedDay, timestamp);
+    
+    //Calculate the day to be updated
+    let dayName = document.querySelector("#forecastNameDay4");
+    //Get the number of the corresponding name
+    let dateD = new Date(timestamp * 1000);
+    // update to the next day name
+    dayName.innerHTML = littleDays[dateD.getDay() + 1];
+
     displayForecastMinMax(forecastedDay, listLenght -1, response);
     displayForcastedWheatherIcon(
       forecastedDay,
