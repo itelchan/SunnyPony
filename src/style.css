@@ -125,11 +125,12 @@ a {
 
 .currentWeatherColumn {
   padding-right: 0px;
+  padding-left: 40px;
 }
 
 .currentWeatherImage {
-  margin-top: 50px;
-  max-width: 10em;
+  margin-top: 30px;
+  max-width: 8em;
   display: block;
 }
 
@@ -139,6 +140,7 @@ a {
 }
 .detailsColumn {
   margin-top: 20px;
+
 }
 
 .detailImage {
@@ -156,7 +158,7 @@ a {
 }
 
 .cardBodyTemp {
-  padding: 10px 5px;
+  padding: 10px 4px;
 }
 
 .footer {

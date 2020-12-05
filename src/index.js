@@ -231,7 +231,8 @@ function displayWheatherIcon(iconName) {
   let currentIcon = document.querySelector("#displayCurrentWeatherImage");
   currentIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${iconName}@2x.png`
+    //`http://openweathermap.org/img/wn/${iconName}@2x.png`  // image from openweathermap
+    `images/${iconName}.svg` // My image
   );
 }
 
@@ -239,7 +240,8 @@ function displayForcastedWheatherIcon(day, iconName) {
   let currentIcon = document.querySelector("#forecastWeatherImage" + day);
   currentIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${iconName}@2x.png`
+    //`http://openweathermap.org/img/wn/${iconName}@2x.png`   // image from openweathermap
+    `images/${iconName}.svg` // My image
   );
 }
 
@@ -339,23 +341,36 @@ function displayForecastFromResponse(response) {
   let forecastedDay = 0;
   let calculatedDay = 0;
   let i = 0;
-  let distanceToNextDay = 8;
-  let midDayDistance = 3; // change to 2 or 3 , depending whats more interesting
+  let offsetToNextDay = 8;
+  let midDayOffset = 3; // change to 2 or 3 , depending whats more interesting
   for (
     i = calculateForecastPositionForTomorrow();
     i < 40;
-    i = i + distanceToNextDay
+    i = i + offsetToNextDay
   ) {
-    //console.log(`i: ${i}, forecastedDay: ${forecastedDay} `);
+    console.log(`i: ${i}, forecastedDay: ${forecastedDay} `);
     let timestamp = response.data.list[i].dt;
     displayForecastDayName(forecastedDay, timestamp);
     displayForecastMinMax(forecastedDay, i, response);
-    console.log(response.data.list[i + midDayDistance]);
+    console.log(response.data.list[i + midDayOffset]);
     displayForcastedWheatherIcon(
       forecastedDay,
-      response.data.list[i + midDayDistance].weather[0].icon
+      response.data.list[i + midDayOffset].weather[0].icon
     );
     forecastedDay++;
+  }
+
+  //Special case if the offset for day 5 exceeds 40, which is the max of the list
+  if(forecastedDay < 5)
+  {
+    let listLenght = 40;
+    let timestamp = response.data.list[listLenght-1].dt;
+    displayForecastDayName(forecastedDay, timestamp);
+    displayForecastMinMax(forecastedDay, listLenght -1, response);
+    displayForcastedWheatherIcon(
+      forecastedDay,
+      response.data.list[listLenght-1].weather[0].icon
+    );
   }
 }
 
