@@ -345,7 +345,7 @@ function displayForecastFromResponse(response) {
   let midDayOffset = 3; // change to 2 or 3 , depending whats more interesting
   for (
     i = calculateForecastPositionForTomorrow();
-    i < 40;
+    i < (40 - midDayOffset);
     i = i + offsetToNextDay
   ) {
     console.log(`i: ${i}, forecastedDay: ${forecastedDay} `);
